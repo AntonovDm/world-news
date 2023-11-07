@@ -18,6 +18,10 @@ ul {
   list-style: none;
 }
 
+li::marker {
+  content: none;
+}
+
 button,
 button:active,
 button:focus {
