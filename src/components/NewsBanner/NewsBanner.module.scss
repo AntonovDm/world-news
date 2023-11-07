@@ -1,0 +1,17 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.banner {
+  @include flex-column;
+  width: 100%;
+  gap: 12px;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.extra {
+  font-size: 12px;
+  color: var(--color-grey-500);
+}

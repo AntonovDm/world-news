@@ -1,0 +1,31 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.header {
+  @include justify-sb-align-center;
+  width: 100%;
+  padding: 12px 24px;
+  background-color: var(--color-grey-0);
+  border-bottom: 1px solid var(--color-grey-300);
+}
+
+.box {
+  @include flex-column-align-center;
+  gap: 8px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.date {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.time {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-grey-500);
+}
