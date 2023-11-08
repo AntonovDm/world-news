@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
 import { getCategories, getNews } from '../../api/apiNews'
 import { pageSize, totalPages } from '../../utils/const'
+import { useDebounce } from '../../helpers/hooks/useDebounce'
 
 import Pagination from '../../components/Pagination/Pagination'
 import NewsBanner from '../../components/NewsBanner/NewsBanner'
 import Categories from '../../components/Categories/Categories'
 import NewsList from '../../components/NewsList/NewsList'
 import Skeleton from '../../components/Skeleton/Skeleton'
+import Search from '../../components/Search/Search'
 
 import styles from './Main.module.scss'
 
@@ -15,7 +17,10 @@ const Main = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const [categories, setCategories] = useState([])
+  const [keywords, setKeywords] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
+
+  const debouncedKeywords = useDebounce(keywords, 1500)
 
   const fetchNews = useCallback(
     async (currentPage) => {
@@ -25,6 +30,7 @@ const Main = () => {
           page_number: currentPage,
           page_size: pageSize,
           category: selectedCategory === 'All' ? null : selectedCategory,
+          keywords: debouncedKeywords,
         })
         setNews(response.news)
         setIsLoading(false)
@@ -32,7 +38,7 @@ const Main = () => {
         console.log(error)
       }
     },
-    [selectedCategory]
+    [selectedCategory, debouncedKeywords]
   )
 
   const fetchCategories = async () => {
@@ -50,7 +56,7 @@ const Main = () => {
 
   useEffect(() => {
     fetchNews(currentPage)
-  }, [currentPage, selectedCategory, fetchNews])
+  }, [currentPage, selectedCategory, fetchNews, debouncedKeywords])
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -74,6 +80,11 @@ const Main = () => {
         categories={categories}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
+      />
+
+      <Search
+        keywords={keywords}
+        setKeywords={setKeywords}
       />
 
       {news.length > 0 && !isLoading ? (
