@@ -1,0 +1,26 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.pagination {
+  @include justify-align-center;
+  width: 100%;
+  gap: 12px;
+}
+
+.pageNumber,
+.arrow {
+  background-color: var(--color-grey-0);
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.pageNumber {
+  padding: 8px;
+}
+
+.list {
+  @include justify-align-center;
+}
