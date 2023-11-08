@@ -5,8 +5,9 @@ export const getNews = async ({
   page_number = 1,
   page_size = 10,
   category,
+  keywords,
 }) => {
-  const url = `${BASE_URL}search?apiKey=${API_KEY}&page_number=${page_number}&page_size=${page_size}&category=${category}`
+  const url = `${BASE_URL}search?apiKey=${API_KEY}&page_number=${page_number}&page_size=${page_size}&category=${category}&keywords=${keywords}`
 
   try {
     const response = await fetch(url)
