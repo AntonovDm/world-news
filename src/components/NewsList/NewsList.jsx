@@ -1,8 +1,9 @@
+import withSkeleton from '../../helpers/HOCs/withSkeleton'
 import NewsItem from '../NewsItem/NewsItem'
 
 import styles from './NewsList.module.scss'
 
-const Image = ({ news }) => {
+const NewsList = ({ news }) => {
   return (
     <ul className={styles.list}>
       {news.map((item) => {
@@ -17,4 +18,6 @@ const Image = ({ news }) => {
   )
 }
 
-export default Image
+const NewsListWithSkeleton = withSkeleton(NewsList, 'item', 10)
+
+export default NewsListWithSkeleton
