@@ -1,0 +1,8 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.section {
+  @include flex-column;
+  width: 100%;
+  gap: 32px;
+}

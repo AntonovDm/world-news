@@ -1,0 +1,9 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.section {
+  @include flex-column;
+  overflow: hidden;
+  width: 100%;
+  gap: 32px;
+}
