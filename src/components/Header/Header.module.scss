@@ -3,29 +3,52 @@
 
 .header {
   @include justify-sb-align-center;
+  flex-direction: column;
   width: 100%;
-  padding: 12px 24px;
+  gap: 8px;
   background-color: var(--color-grey-0);
   border-bottom: 1px solid var(--color-grey-300);
 }
 
 .box {
-  @include flex-column-align-center;
+  @include justify-sb-align-center;
+  flex-direction: row;
+  width: 100%;
   gap: 8px;
 }
 
 .title {
   font-size: 32px;
   font-weight: 700;
+  text-align: center;
+  justify-self: flex-start;
+}
+
+.sub-title {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  justify-self: flex-end;
 }
 
 .date {
+  min-width: 220px;
   font-size: 16px;
   font-weight: 400;
+  text-align: center;
 }
 
 .time {
   font-size: 28px;
   font-weight: 700;
   color: var(--color-grey-500);
+}
+
+@media (max-width: 425px) {
+  .title {
+    font-size: 20px;
+  }
+  .sub-title {
+    font-size: 16px;
+  }
 }

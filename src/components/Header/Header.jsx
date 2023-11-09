@@ -12,12 +12,11 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.box}>
         <h1 className={styles.title}>WORLD NEWS</h1>
-        <p className={styles.date}>{formatDate(currentDate)}</p>
+        <h2 className={styles['sub-title']}>{greeting}</h2>
       </div>
-      <div className={styles.box}>
-        <h2>{greeting}</h2>
-        <p className={styles.time}>{time}</p>
-      </div>
+
+      <p className={styles.time}>{time}</p>
+      <p className={styles.date}>{formatDate(currentDate)}</p>
     </header>
   )
 }

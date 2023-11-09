@@ -24,3 +24,12 @@
 .list {
   @include justify-align-center;
 }
+
+@media (max-width: 425px) {
+  .pagination {
+    gap: 6px;
+  }
+  .pageNumber {
+    padding: 4px;
+  }
+}
