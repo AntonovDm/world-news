@@ -1,30 +1,39 @@
+import { forwardRef } from 'react'
+
 import styles from './Categories.module.scss'
 
-const Categories = ({ categories, selectedCategory, setSelectedCategory }) => {
-  return (
-    <div className={styles.categories}>
-      <button
-        className={!selectedCategory ? styles.active : styles.item}
-        onClick={() => setSelectedCategory(null)}
+const Categories = forwardRef(
+  ({ categories, selectedCategory, setSelectedCategory }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={styles.categories}
       >
-        All
-      </button>
+        <button
+          className={!selectedCategory ? styles.active : styles.item}
+          onClick={() => setSelectedCategory(null)}
+        >
+          All
+        </button>
 
-      {categories.map((category) => {
-        return (
-          <button
-            key={category}
-            className={
-              selectedCategory === category ? styles.active : styles.item
-            }
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </button>
-        )
-      })}
-    </div>
-  )
-}
+        {categories.map((category) => {
+          return (
+            <button
+              key={category}
+              className={
+                selectedCategory === category ? styles.active : styles.item
+              }
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </button>
+          )
+        })}
+      </div>
+    )
+  }
+)
+
+Categories.displayName = 'Categories'
 
 export default Categories
