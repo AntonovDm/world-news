@@ -1,5 +1,4 @@
-import { formatTimeAgo } from '../../helpers/formatTimeAgo'
-
+import NewsInfo from '../NewsInfo/NewsInfo'
 import styles from './NewsItem.module.scss'
 
 const NewsItem = ({ item }) => {
@@ -12,10 +11,10 @@ const NewsItem = ({ item }) => {
         style={{ backgroundImage: imgStyle }}
       ></div>
       <div className={styles.info}>
-        <h3 className={styles.title}>{item.title}</h3>
-        <p className={styles.extra}>
-          {formatTimeAgo(item.published)} by {item.author}
-        </p>
+        <NewsInfo
+          item={item}
+          type="item"
+        />
       </div>
     </li>
   )
