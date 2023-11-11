@@ -2,7 +2,11 @@ import imgNone from '../../assets/image/imgNone.jpg'
 
 import styles from './Image.module.scss'
 
-const Image = ({ image }) => {
+interface Props {
+  image: string
+}
+
+const Image = ({ image }: Props) => {
   const imageView = image !== 'None' ? image : imgNone
 
   return (

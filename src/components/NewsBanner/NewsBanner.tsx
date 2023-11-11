@@ -1,9 +1,14 @@
 import NewsInfo from '../NewsInfo/NewsInfo'
 import Image from '../Image/Image'
+import { INews } from '../../interfaces'
 
 import styles from './NewsBanner.module.scss'
 
-const NewsBanner = ({ item }) => {
+interface Props {
+  item: INews
+}
+
+const NewsBanner = ({ item }: Props) => {
   return (
     <div className={styles.banner}>
       <Image image={item?.image} />
