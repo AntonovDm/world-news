@@ -104,6 +104,6 @@ body {
 
 @media (max-width: 425px) {
   .container {
-    padding: 8px;
+    padding: 20px 8px 8px 8px;
   }
 }

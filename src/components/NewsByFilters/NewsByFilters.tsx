@@ -9,6 +9,7 @@ import NewsFilters from '../NewsFilters/NewsFilters'
 import NewsList from '../../components/NewsList/NewsList'
 
 import styles from './NewsByFilters.module.scss'
+import { INewsApiResponse, TypeParams } from '../../interfaces'
 
 const NewsByFilters = () => {
   const { filters, changeFilter } = useFilters({
@@ -20,7 +21,7 @@ const NewsByFilters = () => {
 
   const debouncedKeywords = useDebounce(filters.keywords, 1500)
 
-  const { data, isLoading } = useFetch(getNews, {
+  const { data, isLoading } = useFetch<INewsApiResponse, TypeParams>(getNews, {
     ...filters,
     keywords: debouncedKeywords,
   })
@@ -37,7 +38,7 @@ const NewsByFilters = () => {
     }
   }
 
-  const handlePageClick = (pageNumber) => {
+  const handlePageClick = (pageNumber: number) => {
     changeFilter('page_number', pageNumber)
   }
 
