@@ -2,20 +2,22 @@
 
 Проект на этапе разработки.
 
-[Demo project](https://all-world-news.vercel.app/)
+Демо можно посмотреть здесь → [Demo](https://all-world-news.vercel.app/)
 
 ## Текущий stack
 
 - React
-- CSS module
-- React Router
+- TypeScript
+- SCSS module
 
-### На этапе внедрения:
+### Будет внедрено:
 
-- Новый дизайн для телефона и веб-приложения.
-- Миграция на Typescript
 - React Router
 - Redux Toolkit
+- OpenWeatherAPI
+- Новый дизайн для веб-приложения и телефона.
+- Темная тема.
+- Авторизация с сохранением новостей и избранным.
 
 
 
