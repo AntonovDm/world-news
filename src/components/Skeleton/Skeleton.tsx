@@ -1,6 +1,17 @@
+import { TypeDirection, TypeSteleton } from '../../interfaces'
 import styles from './Skeleton.module.scss'
 
-const Skeleton = ({ count, type, direction = 'column' }) => {
+interface Props {
+  type?: TypeSteleton
+  count?: number
+  direction?: TypeDirection
+}
+
+const Skeleton = ({
+  count = 1,
+  type = 'banner',
+  direction = 'column',
+}: Props) => {
   const className = type === 'banner' ? styles.banner : styles.item
 
   return (

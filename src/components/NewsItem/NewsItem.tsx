@@ -1,8 +1,16 @@
+import { INews } from '../../interfaces'
+
 import NewsInfo from '../NewsInfo/NewsInfo'
+
 import styles from './NewsItem.module.scss'
 
-const NewsItem = ({ item }) => {
-  const imgStyle = item.image !== 'None' && `url(${item.image})`
+interface Props {
+  item: INews
+}
+
+const NewsItem = ({ item }: Props) => {
+  const imgStyle: string | undefined =
+    item.image !== 'None' ? `url(${item.image})` : undefined
 
   return (
     <li className={styles.item}>
