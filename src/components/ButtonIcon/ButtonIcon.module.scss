@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+
+.button-icon {
+  background: none;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-grey-100);
+  }
+
+  & svg {
+    width: 25px;
+    height: 25px;
+    color: var(--color-indigo-700);
+  }
+}
+
+@media (max-width: 425px) {
+  .button-icon {
+    & svg {
+      width: 20px;
+      height: 20px;
+      color: var(--color-indigo-700);
+    }
+  }
+}
