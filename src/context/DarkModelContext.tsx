@@ -14,7 +14,7 @@ const DarkModeContext = createContext<ICurrentUserContextType | undefined>(
   undefined
 )
 
-const DarkModelProvider = ({ children }: IProps) => {
+const DarkModeProvider = ({ children }: IProps) => {
   const [isDarkMode, setIsDarkMode] = useLocalStorageState<boolean>({
     initialState: window.matchMedia(' (prefers-color-scheme: dark  ) ').matches,
     key: 'isDarkMode',
@@ -49,4 +49,4 @@ function useDarkMode() {
   return context
 }
 
-export { DarkModelProvider, useDarkMode }
+export { DarkModeProvider, useDarkMode }
