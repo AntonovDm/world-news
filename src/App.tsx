@@ -1,14 +1,17 @@
 import Header from './components/Header/Header'
 import Main from './pages/Main/Main'
+import { DarkModelProvider } from './context/DarkModelContext'
 
 function App() {
   return (
-    <div className="app">
-      <Header />
-      <div className="container">
-        <Main />
+    <DarkModelProvider>
+      <div className="app">
+        <Header />
+        <div className="container">
+          <Main />
+        </div>
       </div>
-    </div>
+    </DarkModelProvider>
   )
 }
 
